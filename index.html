@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>JUROS PRO</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+<h1>JUROS PRO</h1>
+
+<form id="loanForm">
+<label>Nome:</label><input id="nome" required>
+<label>Data do Empréstimo:</label><input type="date" id="data" required>
+<label>Valor (R$):</label><input type="number" id="valor" step="0.01" required>
+<label>Juros Mensais (%):</label><input type="number" id="juros" step="0.01" required>
+<button type="submit">Cadastrar</button>
+</form>
+
+<h2>Registros</h2>
+<div id="lista"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
