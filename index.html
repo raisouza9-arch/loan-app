@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.json">
+<title>Controle de Empréstimos</title>
+</head>
+<body>
+<h1>Controle de Empréstimos</h1>
+<p>App simples para registrar empréstimos e juros.</p>
+<script>
+// Simple localStorage demo
+if(!localStorage.getItem("loans")) localStorage.setItem("loans", JSON.stringify([]));
+</script>
+</body>
+</html>
