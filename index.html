@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.png">
+<title>JUROS PRO</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>JUROS PRO</h1>
+    <button id="open-dashboard" class="small">Dashboard</button>
+    <button id="open-new" class="small">Novo Cadastro</button>
+    <input id="search" placeholder="Buscar por nome..." />
+  </header>
+
+  <main id="main-content">
+    <!-- Dashboard -->
+    <section id="dashboard" class="screen">
+      <h2>Dashboard</h2>
+      <div class="cards">
+        <div class="card"><strong id="total-loans">R$ 0</strong><small>Total emprestado</small></div>
+        <div class="card"><strong id="total-interest">R$ 0</strong><small>Total juros acumulado</small></div>
+        <div class="card"><strong id="total-paid">R$ 0</strong><small>Total pago em juros</small></div>
+      </div>
+      <canvas id="chart" width="600" height="200"></canvas>
+      <h3>Registros recentes</h3>
+      <div id="list"></div>
+    </section>
+
+    <!-- New Loan -->
+    <section id="new" class="screen hidden">
+      <h2>Cadastro de Empréstimo</h2>
+      <label>Nome (pessoa): <input id="name" /></label>
+      <label>Data do Empréstimo: <input id="date" type="date" /></label>
+      <label>Valor (R$): <input id="value" type="number" step="0.01" /></label>
+      <label>Juros Mensais (%): <input id="interest" type="number" step="0.01" /></label>
+      <label>Mês pago (opcional): <input id="paid_month" type="month" /></label>
+      <div class="row">
+        <button id="save" class="primary">Cadastrar</button>
+        <button id="cancel" class="small">Cancelar</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
