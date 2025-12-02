@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JUROS PRO</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="JUROS PRO">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <div class="logo"><img src="icon.png" alt="icon" style="width:44px;height:44px"></div>
+      <div><h1>JUROS PRO</h1><div class="small">Controle de empréstimos — juros mensais simples</div></div>
+    </div>
+
+    <div class="card">
+      <form id="loanForm">
+        <div class="form-grid">
+          <div>
+            <label>Nome</label>
+            <input id="nome" required placeholder="Nome da pessoa">
+          </div>
+          <div>
+            <label>Data do empréstimo</label>
+            <input id="start" type="date" required>
+          </div>
+          <div>
+            <label>Valor (R$)</label>
+            <input id="value" type="number" step="0.01" required>
+          </div>
+          <div>
+            <label>Taxa mensal (%)</label>
+            <input id="monthlyRate" type="number" step="0.01" required>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="addBtn" type="submit">Cadastrar empréstimo</button>
+          <button id="exportBtn" type="button" class="small-btn">Exportar JSON</button>
+          <button id="importBtn" type="button" class="small-btn">Importar JSON</button>
+          <button id="clearBtn" type="button" class="small-btn">Limpar todos</button>
+        </div>
+      </form>
+      <div class="small note">Aviso: o app exibirá alerta visual e tentará notificar 1 dia antes do vencimento (quando aberto ou com permissão).</div>
+    </div>
+
+    <div class="card search">
+      <input id="search" placeholder="Buscar por nome..." oninput="onSearch()" />
+      <div class="controls" style="margin-top:8px">
+        <button onclick="filterAll()" class="small-btn">Todos</button>
+        <button onclick="filterPending()" class="small-btn">Pendentes</button>
+        <button onclick="filterPaid()" class="small-btn">Pagos</button>
+        <button onclick="filterOverdue()" class="small-btn">Vencidos</button>
+      </div>
+    </div>
+
+    <div id="loansList" class="list"></div>
+
+    <div class="footer">Dados locais no dispositivo — use Exportar JSON para backup.</div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
