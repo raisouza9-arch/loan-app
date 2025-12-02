@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<title>JUROS PRO</title>
+</head>
+<body>
+<header class="topbar">
+  <img src="icon.png" alt="icon" class="app-icon">
+  <h1>JUROS PRO</h1>
+</header>
+
+<main class="container">
+  <section class="form">
+    <label>Nome:</label>
+    <input id="name" placeholder="Nome">
+
+    <label>Data do Empréstimo:</label>
+    <input id="date" type="date">
+
+    <label>Valor (R$):</label>
+    <input id="value" type="number" step="0.01" placeholder="0.00">
+
+    <label>Juros Mensais (%):</label>
+    <input id="rate" type="number" step="0.01" placeholder="Ex: 1.5">
+
+    <div class="row">
+      <button id="addMonthBtn" class="btn-card">📅 Adicionar mês pago</button>
+      <button id="saveBtn" class="btn-primary">Cadastrar</button>
+    </div>
+
+    <div id="monthsContainer" class="months"></div>
+  </section>
+
+  <section class="dashboard">
+    <h2>Registros</h2>
+    <div id="records"></div>
+  </section>
+</main>
+
+<!-- Edit modal -->
+<div id="modal" class="modal hidden" aria-hidden="true">
+  <div class="modal-content">
+    <h3>Editar Empréstimo</h3>
+    <label>Nome:</label>
+    <input id="edit-name">
+
+    <label>Data:</label>
+    <input id="edit-date" type="date">
+
+    <label>Valor:</label>
+    <input id="edit-value" type="number" step="0.01">
+
+    <label>Juros (%):</label>
+    <input id="edit-rate" type="number" step="0.01">
+
+    <label>Meses pagos:</label>
+    <div id="edit-months-list" class="months"></div>
+    <div class="row">
+      <input id="edit-month-input" type="month">
+      <button id="edit-add-month" class="btn-card">📅</button>
+    </div>
+
+    <div class="row">
+      <button id="edit-save" class="btn-primary">Salvar</button>
+      <button id="edit-cancel" class="btn-secondary">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
