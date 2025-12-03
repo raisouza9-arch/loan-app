@@ -1,7 +1,0 @@
-body {background:#000;color:#fff;font-family:Arial;margin:0;padding:0;}
-header {padding:20px;text-align:center;background:#111;}
-.dashboard {display:flex;gap:15px;padding:20px;flex-wrap:wrap;}
-.card {flex:1;background:#1a1a1a;padding:20px;border-radius:12px;border:1px solid gold;}
-.card h2 {color:gold;}
-nav {position:fixed;bottom:0;left:0;width:100%;background:#111;padding:10px;display:flex;gap:10px;}
-nav button {flex:1;padding:15px;background:gold;border:none;border-radius:8px;color:#000;font-size:18px;}
