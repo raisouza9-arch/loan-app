@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JUROS PRO</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <img src="icon.png" class="app-icon" alt="Juros Pro">
+  <div>
+    <h1>JUROS PRO</h1>
+    <div class="subtitle">Controle de empréstimos & juros</div>
+  </div>
+</header>
+
+<nav class="tabs" role="navigation">
+  <button id="tab-dashboard" class="tab active">Dashboard</button>
+  <button id="tab-new" class="tab">Novo</button>
+  <button id="tab-list" class="tab">Lista</button>
+</nav>
+
+<main id="main">
+  <section id="dashboard" class="view">
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Total emprestado</div>
+        <div id="total-loans" class="card-value">R$ 0,00</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Juros já recebidos</div>
+        <div id="total-interest-received" class="card-value">R$ 0,00</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Total acumulado</div>
+        <div id="total-accumulated" class="card-value">R$ 0,00</div>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <h3>Juros recebidos por mês</h3>
+      <canvas id="chart-months" height="120"></canvas>
+    </div>
+  </section>
+
+  <section id="new" class="view hidden">
+    <form id="loan-form" class="form">
+      <label>Nome
+        <input id="name" type="text" placeholder="Nome completo" required>
+      </label>
+      <label>Data do Empréstimo
+        <input id="date" type="date" required>
+      </label>
+      <label>Valor (R$)
+        <input id="amount" type="number" step="0.01" min="0" placeholder="0,00" required>
+      </label>
+      <label>Taxa mensal (%) 
+        <input id="rate" type="number" step="0.01" min="0" placeholder="Ex: 1.5" required>
+      </label>
+
+      <div class="row">
+        <button type="button" id="add-paid-month" class="btn outline">📅 Adicionar mês pago</button>
+        <input id="paidMonthInput" type="month" aria-label="mês pago" class="month-input">
+        <button type="submit" class="btn primary">Cadastrar</button>
+      </div>
+      <div id="paid-months-list" class="months-list" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <section id="list" class="view hidden">
+    <div class="filters">
+      <input id="search" placeholder="Buscar por nome..." aria-label="Buscar">
+      <button id="clearSearch" class="small-btn">Limpar</button>
+    </div>
+    <div id="loans-list" class="loans-list" role="list"></div>
+  </section>
+</main>
+
+<!-- Edit modal -->
+<div id="modal" class="modal hidden" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <h3>Editar Empréstimo</h3>
+    <label>Nome<input id="m-name" type="text"></label>
+    <label>Data<input id="m-date" type="date"></label>
+    <label>Valor<input id="m-amount" type="number" step="0.01"></label>
+    <label>Taxa mensal (%)<input id="m-rate" type="number" step="0.01"></label>
+    <label>Meses pagos (YYYY-MM, separados por vírgula)
+      <input id="m-paid" type="text" placeholder="2025-11,2025-12">
+    </label>
+    <div class="row">
+      <button id="m-save" class="btn primary">Salvar</button>
+      <button id="m-cancel" class="btn outline">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">Local: seu dispositivo · Backup: Export/Import</div>
+  <div class="footer-right">V.1.0</div>
+</footer>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
